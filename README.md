@@ -98,6 +98,7 @@ grok-3-beta
    -e SESSIONS=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0**,eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0** \
    -e APIKEY=123 \
    -e IS_INCOGNITO=true \
+   -e USE_STRUCTURED_PROMPT=true \
    -e MAX_CHAT_HISTORY_LENGTH=10000 \
    -e NO_ROLE_PREFIX=false \
    -e SEARCH_RESULT_COMPATIBLE=false \
@@ -120,6 +121,7 @@ grok-3-beta
        - ADDRESS=0.0.0.0:8080
        - APIKEY=123
        - PROXY=http://proxy:2080  # 可选
+       - USE_STRUCTURED_PROMPT=true
        - MAX_CHAT_HISTORY_LENGTH=10000
        - NO_ROLE_PREFIX=false
        - IS_INCOGNITO=true
@@ -139,6 +141,7 @@ grok-3-beta
  | `APIKEY` | 用于认证的API密钥 | 必填 |
  | `PROXY` | HTTP代理URL | "" |
  | `IS_INCOGNITO` | 使用隐私会话，不保存聊天记录 | `true` |
+ | `USE_STRUCTURED_PROMPT` | 使用结构化提示词拼装，增强 system 提示词服从性 | `false` |
  | `MAX_CHAT_HISTORY_LENGTH` | 超出此长度将文本转为文件 | `10000` |
  | `NO_ROLE_PREFIX` |不在每条消息前添加角色 | `false` |
  | `IGNORE_SEARCH_RESULT` |忽略搜索结果，不展示搜索结果 | `false` |
@@ -222,4 +225,3 @@ grok-3-beta
  ---
  由[yushangxiao](https://github.com/yushangxiao)用❤️制作
 </details>
-

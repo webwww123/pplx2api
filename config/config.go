@@ -31,6 +31,7 @@ type Config struct {
 	MaxChatHistoryLength   int
 	RetryCount             int
 	NoRolePrefix           bool
+	UseStructuredPrompt    bool
 	SearchResultCompatible bool
 	PromptForFile          string
 	RwMutex                sync.RWMutex
@@ -100,6 +101,8 @@ func LoadConfig() *Config {
 		RetryCount: retryCount,
 		// 设置是否使用角色前缀
 		NoRolePrefix: os.Getenv("NO_ROLE_PREFIX") == "true",
+		// 设置是否使用结构化提示词拼装
+		UseStructuredPrompt: os.Getenv("USE_STRUCTURED_PROMPT") == "true",
 		// 设置搜索结果兼容性
 		SearchResultCompatible: os.Getenv("SEARCH_RESULT_COMPATIBLE") == "true",
 		// 设置上传文件后的提示词
@@ -152,6 +155,7 @@ func init() {
 	logger.Info(fmt.Sprintf("IsIncognito: %t", ConfigInstance.IsIncognito))
 	logger.Info(fmt.Sprintf("MaxChatHistoryLength: %d", ConfigInstance.MaxChatHistoryLength))
 	logger.Info(fmt.Sprintf("NoRolePrefix: %t", ConfigInstance.NoRolePrefix))
+	logger.Info(fmt.Sprintf("UseStructuredPrompt: %t", ConfigInstance.UseStructuredPrompt))
 	logger.Info(fmt.Sprintf("SearchResultCompatible: %t", ConfigInstance.SearchResultCompatible))
 	logger.Info(fmt.Sprintf("PromptForFile: %s", ConfigInstance.PromptForFile))
 	logger.Info(fmt.Sprintf("IgnoreSerchResult: %t", ConfigInstance.IgnoreSerchResult))
